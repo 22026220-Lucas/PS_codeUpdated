@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add CSS styles for the navigation bar */
+    header {
+      background-color: #062773;
+      padding: 10px;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'SingaporeAirlines', Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    #payment-options {
+      list-style: none; /* Remove bullet points */
+      padding: 0; /* Remove default padding */
+    }
+
+    #payment-options li {
+      margin-bottom: 10px;
+    }
+
+    #next-button {
+      padding: 10px 20px;
+      background-color: #062773;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #next-button:hover {
+      background-color: #0340a4;
+    }
+
+    .payment-details {
+      display: none;
+      margin-top: 20px;
+    }
+
+    footer {
+      background-color: #f2f2f2;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Singapore">
+  <title>Payment Confirmation</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div>
+        <h1 class="logo">JETSETGO</h1>
+      </div>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="payment-section">
+      <h1>Payment Confirmation</h1>
+      <p>Please select your preferred payment method:</p>
+      <ul id="payment-options">
+        <li>
+          <input type="radio" id="apple-pay" name="payment-method" value="apple-pay" required>
+          <label for="apple-pay">Apple Pay</label>
+        </li>
+        <li>
+          <input type="radio" id="google-pay" name="payment-method" value="google-pay" required>
+          <label for="google-pay">Google Pay</label>
+        </li>
+        <li>
+          <input type="radio" id="alipay" name="payment-method" value="alipay" required>
+          <label for="alipay">Alipay</label>
+        </li>
+        <li>
+          <input type="radio" id="jet-pay" name="payment-method" value="jet-pay" required>
+          <label for="jet-pay">JETpay</label>
+        </li>
+        <li>
+          <input type="radio" id="paypal" name="payment-method" value="paypal" required>
+          <label for="paypal">PayPal</label>
+        </li>
+        <li>
+          <input type="radio" id="debit-credit" name="payment-method" value="debit-credit" required>
+          <label for="debit-credit">Debit/Credit Card</label>
+        </li>
+      </ul>
+
+      <div class="payment-details" id="apple-pay-details">
+        <p>Use Apple Pay on your device to complete the payment.</p>
+      </div>
+
+      <div class="payment-details" id="google-pay-details">
+        <p>Use Google Pay on your device to complete the payment.</p>
+      </div>
+
+      <div class="payment-details" id="alipay-details">
+        <p>Use Alipay on your device to complete the payment.</p>
+      </div>
+
+      <div class="payment-details" id="jet-pay-details">
+        <p>Use JETpay on your device to complete the payment.</p>
+      </div>
+
+      <div class="payment-details" id="paypal-details">
+        <label for="paypal-info">PayPal Email:</label>
+        <input type="email" id="paypal-info" required>
+      </div>
+
+      <div class="payment-details" id="debit-credit-details">
+        <label for="card-number">Card Number:</label>
+        <input type="text" id="card-number" required>
+
+        <label for="expiry-date">Expiry Date:</label>
+        <input type="text" id="expiry-date" required>
+
+        <label for="cvc">CVC:</label>
+        <input type="text" id="cvc" required>
+
+        <label for="otp">OTP:</label>
+        <input type="text" id="otp" required>
+
+        <label for="cardholder-name">Cardholder Name:</label>
+        <input type="text" id="cardholder-name" required>
+      </div>
+
+      <button id="next-button" onclick="redirectToConfirmation()">Next</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 JETSETGO. All rights reserved.</p>
+    <!-- Add footer content here -->
+  </footer>
+
+  <script>
+    function redirectToConfirmation() {
+      const selectedPayment = document.querySelector('input[name="payment-method"]:checked');
+      if (selectedPayment) {
+        const paymentMethod = selectedPayment.value;
+        switch (paymentMethod) {
+          case "apple-pay":
+            // Perform any necessary actions for Apple Pay (if needed)
+            window.location.href = "confirmation.html";
+            break;
+          case "google-pay":
+            // Perform any necessary actions for Google Pay (if needed)
+            window.location.href = "confirmation.html";
+            break;
+          case "alipay":
+            // Perform any necessary actions for Alipay (if needed)
+            window.location.href = "confirmation.html";
+            break;
+          case "jet-pay":
+            // Perform any necessary actions for JETpay (if needed)
+            window.location.href = "confirmation.html";
+            break;
+          case "paypal":
+            const paypalEmail = document.getElementById("paypal-info").value;
+            if (paypalEmail) {
+              // Perform any necessary actions with the PayPal email
+              window.location.href = "confirmation.html";
+            } else {
+              alert("Please enter your PayPal email.");
+            }
+            break;
+          case "debit-credit":
+            const cardNumber = document.getElementById("card-number").value;
+            const expiryDate = document.getElementById("expiry-date").value;
+            const cvc = document.getElementById("cvc").value;
+            const otp = document.getElementById("otp").value;
+            const cardholderName = document.getElementById("cardholder-name").value;
+  
+            if (cardNumber && expiryDate && cvc && otp && cardholderName) {
+              // Perform any necessary actions with the card details
+              window.location.href = "confirmation.html";
+            } else {
+              alert("Please fill in all the required card details.");
+            }
+            break;
+          default:
+            break;
+        }
+      } else {
+        alert("Please select a payment method.");
+      }
+    }
+  
+    document.addEventListener("DOMContentLoaded", function() {
+      const paymentOptions = document.querySelectorAll('input[name="payment-method"]');
+      const paymentDetails = document.querySelectorAll(".payment-details");
+  
+      for (let i = 0; i < paymentOptions.length; i++) {
+        paymentOptions[i].addEventListener("change", function() {
+          for (let j = 0; j < paymentDetails.length; j++) {
+            paymentDetails[j].style.display = "none";
+          }
+  
+          const selectedPayment = document.querySelector('input[name="payment-method"]:checked');
+          if (selectedPayment) {
+            const selectedPaymentId = selectedPayment.value + "-details";
+            const selectedPaymentDetails = document.getElementById(selectedPaymentId);
+            if (selectedPaymentDetails) {
+              selectedPaymentDetails.style.display = "block";
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Login</title>
+
+  <style>
+    /* Add custom styles for login page */
+
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 100px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'SingaporeAirlines', Arial, sans-serif;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .form-error {
+      color: red;
+      margin-top: 5px;
+    }
+
+    .form-button {
+      width: 100%;
+      padding: 10px;
+      background-color: #003663;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .form-button:hover {
+      background-color: #002b4d;
+    }
+  </style>
+
+  <link href="https://fonts.googleapis.com/css?family=Singapore" rel="stylesheet">
+
+  <style>
+    /* Apply the Singapore Airlines font to the logo */
+    .logo,
+    h1 {
+      font-family: 'SingaporeAirlines', Arial, sans-serif;
+    }
+
+    /* Add CSS styles for the navigation bar */
+    header {
+      background-color: #062773;
+      padding: 10px;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div>
+        <h1 class="logo">JETSETGO</h1>
+      </div>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Login</h1>
+    <form id="login-form" action="flights.html">
+      <div class="form-group">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" id="email" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="form-button"><a href="flights.html">Login</a></button>
+      </div>
+    </form>
+    <a href="create-account.html">Create an Account</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 JETSETGO. All rights reserved.</p>
+    <!-- Add footer content here -->
+  </footer>
+</body>
+
+</html>

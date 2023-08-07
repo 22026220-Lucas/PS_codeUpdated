@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add CSS styles for the navigation bar */
+    header {
+      background-color: #062773;
+      padding: 10px;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Add CSS styles for the logo */
+    .logo {
+      font-family: 'SingaporeAirlines', Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      margin: 0;
+    }
+
+    /* Adjust the size of the origin input field */
+    #country-of-origin {
+      width: 200px;
+    }
+
+    /* Improve overall readability and layout */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #555;
+    }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .slideshow-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .slideshow-caption {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 10px;
+    }
+
+    /* Add navigation buttons for slideshow */
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Singapore">
+  <title>Flight Booking</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div>
+        <h1 class="logo">JETSETGO</h1>
+      </div>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="search-section">
+      <h1>Welcome to JETSETGO</h1>
+      <form id="search-form" action="login.html">
+        <div>
+          <label for="country-of-origin">Country of Origin:</label>
+          <input type="text" id="country-of-origin" required>
+        </div>
+        <div>
+          <label for="destination">Destination:</label>
+          <input type="text" id="destination" required>
+        </div>
+        <div>
+          <label for="num-travellers">Number of Travellers:</label>
+          <input type="number" id="num-travellers" required>
+        </div>
+        <div>
+          <label for="departure-date">Departure Date:</label>
+          <input type="date" id="departure-date" required>
+        </div>
+        <div>
+          <label for="return-date">Return Date:</label>
+          <input type="date" id="return-date">
+        </div>
+        <div>
+          <label for="ticket-type">Ticket Type:</label>
+          <select id="ticket-type" required>
+            <option value="one-way">One-way</option>
+            <option value="return">Return</option>
+          </select>
+        </div>
+        <button type="submit"><a href="flights.html" style="color: white;">Search Flights</a></button>
+      </form>
+    </section>
+
+    <section id="recommendations-section">
+      <h2>Country Recommendations</h2>
+      <div class="South Korea">
+        <h3>South Korea</h3>
+        <p>Why visit South Korea? Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+      <div class="North Korea">
+        <h3>North Korea</h3>
+        <p>Why visit North Korea? Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </section>
+
+    <section id="landmarks-section">
+      <h2>Landmarks</h2>
+      <div class="slideshow-container">
+        <div class="slideshow-item">
+          <img class="slideshow-image" src="southKorea.jpg" alt="South Korea">
+          <div class="slideshow-caption">South Korea</div>
+        </div>
+        <div class="slideshow-item">
+          <img class="slideshow-image" src="NorthKorea.jpg" alt="North Korea">
+          <div class="slideshow-caption">North Korea</div>
+        </div>
+        <div class="slideshow-item">
+          <img class="slideshow-image" src="Singapore.jpg" alt="Singapore">
+          <div class="slideshow-caption">Singapore</div>
+        </div>
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 JETSETGO. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+    const slideshowItems = document.querySelectorAll('.slideshow-item');
+
+    showSlide(slideIndex);
+
+    function changeSlide(n) {
+      showSlide((slideIndex += n));
+    }
+
+    function showSlide(n) {
+      if (n >= slideshowItems.length) {
+        slideIndex = 0;
+      } else if (n < 0) {
+        slideIndex = slideshowItems.length - 1;
+      }
+
+      slideshowItems.forEach((item) => {
+        item.style.display = 'none';
+      });
+
+      slideshowItems[slideIndex].style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>

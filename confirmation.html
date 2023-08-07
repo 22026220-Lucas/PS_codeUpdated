@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add CSS styles for the navigation bar */
+    header {
+      background-color: #062773;
+      padding: 10px;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'SingaporeAirlines', Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    #ok-button {
+      padding: 10px 20px;
+      background-color: #062773;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #ok-button:hover {
+      background-color: #0340a4;
+    }
+
+    footer {
+      background-color: #f2f2f2;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Singapore">
+  <title>Confirmation</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <div>
+        <h1 class="logo">JETSETGO</h1>
+      </div>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="confirmation-section">
+      <h1>Booking Confirmed</h1>
+      <p>Your booking has been confirmed!</p>
+      <!-- Add any additional details or messages here -->
+      <button id="ok-button">OK</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 JETSETGO. All rights reserved.</p>
+    <!-- Add footer content here -->
+  </footer>
+
+  <script>
+    // JavaScript code to handle OK button click
+    const okButton = document.getElementById('ok-button');
+
+    okButton.addEventListener('click', () => {
+      // Redirect to the homepage
+      window.location.href = 'homepage.html';
+    });
+  </script>
+</body>
+</html>

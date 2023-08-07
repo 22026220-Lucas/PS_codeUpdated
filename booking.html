@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Booking</title>
+  <style>
+    /* Add CSS for full-page layout and scrolling */
+    header {
+      background-color: #062773;
+      padding: 10px;
+      color: #fff;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+
+    main {
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    /* Add CSS for seat selection */
+    .seat-row {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .seat {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      background-color: lightgray;
+      border: 1px solid gray;
+      cursor: pointer;
+    }
+
+    .available {
+      background-color: lightgreen;
+    }
+
+    .unavailable {
+      background-color: lightgray;
+      cursor: not-allowed;
+    }
+
+    .selected {
+      background-color: lightblue;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <!-- Add your logo and navigation bar here -->
+      <h1 class="logo">JETSETGO</h1>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="booking-section">
+      <h1>Booking Details</h1>
+      <!-- Display the flight details, personal details, seat selection, baggage -->
+      <div id="flight-details">
+        <h2>Flight Details</h2>
+        <p>Departure Flight: Singapore</p>
+        <p>Return Flight: Paris</p>
+        <p>Departure Date: <span id="departure-date">2023-07-15</span></p>
+        <p>Return Date: <span id="return-date">2023-07-22</span></p>
+      </div>
+
+      <div id="personal-details">
+        <h2>Personal Details</h2>
+        <form id="personal-details-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" required>
+          <!-- Add more fields for personal details -->
+        </form>
+      </div>
+
+      <div id="seat-selection">
+        <h2>Seat Selection</h2>
+        <div id="seat-map">
+          <div class="seat-row">
+            <div class="seat available"></div>
+            <div class="seat available"></div>
+            <div class="seat unavailable"></div>
+            <div class="seat available"></div>
+            <div class="seat available"></div>
+            <div class="seat unavailable"></div>
+            <div class="seat unavailable"></div>
+            <div class="seat available"></div>
+          </div>
+          <div class="seat-row">
+            <div class="seat available"></div>
+            <div class="seat available"></div>
+            <div class="seat available"></div>
+            <div class="seat available"></div>
+            <div class="seat available"></div>
+            <div class="seat available"></div>
+            <div class="seat unavailable"></div>
+            <div class="seat available"></div>
+          </div>
+          <div class="seat-row">
+            <div class="seat available"></div>
+            <div class="seat available"></div>
+            <div class="seat available"></div>
+            <div class="seat available"></div>
+            <div class="seat available"></div>
+            <div class="seat available"></div>
+            <div class="seat unavailable"></div>
+            <div class="seat available"></div>
+          </div>
+          <!-- Add more seat rows as needed -->
+        </div>
+      </div>
+
+      <div id="baggage-selection">
+        <h2>Baggage Selection</h2>
+        <form id="baggage-form">
+          <label>
+            <input type="radio" name="baggage" value="Preferred"> Preferred
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="baggage" value="Standard"> Standard
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="baggage" value="Smart-Choice"> Smart Choice
+          </label>
+          <br>
+          <label>
+            <input type="radio" name="baggage" value="None"> None
+          </label>
+        </form>
+      </div>
+      <button id="next-button">Next</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 JETSETGO. All rights reserved.</p>
+    <!-- Add footer content here -->
+  </footer>
+
+  <script>
+    // JavaScript code for seat selection
+    const seats = document.querySelectorAll('.seat');
+
+    seats.forEach(seat => {
+      seat.addEventListener('click', () => {
+        if (seat.classList.contains('available')) {
+          seat.classList.toggle('selected');
+          updateBookingSummary();
+        }
+      });
+    });
+
+    function updateBookingSummary() {
+      const selectedSeats = document.querySelectorAll('.seat.selected');
+      const seatSelectionSummary = document.getElementById('seat-selection-summary');
+
+      if (seatSelectionSummary) {
+        if (selectedSeats.length >= 1) {
+          seatSelectionSummary.innerHTML = `<h3>Seat Selection</h3>
+            <p>Number of passengers: ${selectedSeats.length}</p>
+            <p>Seat number(s): ${Array.from(selectedSeats).map(seat => seat.dataset.seat).join(', ')}</p>`;
+        } else {
+          seatSelectionSummary.innerHTML = '';
+        }
+      }
+    }
+
+    // JavaScript code for the "Next" button
+    const nextButton = document.getElementById('next-button');
+
+    nextButton.addEventListener('click', () => {
+      // Perform actions when the "Next" button is clicked
+      // Get the selected options
+      const selectedSeats = Array.from(document.querySelectorAll('.seat.selected')).map(seat => seat.dataset.seat);
+      const baggageOption = document.querySelector('input[name="baggage"]:checked');
+
+      if (baggageOption) {
+        const baggageValue = baggageOption.value;
+
+        // Create the URL with the selected options as parameters
+        const urlParams = new URLSearchParams();
+        urlParams.append('seats', selectedSeats.join(','));
+        urlParams.append('baggage', baggageValue);
+
+        // Navigate to the summary page with the URL parameters
+        window.location.href = 'summary.html?' + urlParams.toString();
+      } else {
+        alert('Please select a baggage option.');
+      }
+    });
+  </script>
+</body>
+</html>

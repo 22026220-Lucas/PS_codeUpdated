@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Summary</title>
+  <style>
+    /* Add custom styles for summary page */
+    header {
+      background-color: #062773;
+      padding: 10px;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Add CSS styles for the logo */
+    .logo {
+      font-family: 'SingaporeAirlines', Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      margin: 0;
+    }
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #062773;
+      padding: 10px;
+      color: #fff;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 24px;
+      margin: 0;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    h1, h2, h3 {
+      color: #062773;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .summary-section {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .summary-section h2 {
+      margin-bottom: 10px;
+    }
+
+    .summary-section p {
+      margin-bottom: 5px;
+    }
+
+    #confirm-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #003663;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #confirm-button:hover {
+      background-color: #002b4d;
+    }
+
+    footer {
+      background-color: #062773;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <!-- Add your logo and navigation bar here -->
+      <h1 class="logo">JETSETGO</h1>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="summary-section">
+      <h1>Booking Summary</h1>
+      <!-- Display the booking summary including flight details, personal details, seat selection, baggage, and total cost -->
+      <div id="flight-summary">
+        <h2>Flight Summary</h2>
+        <p>Departure Flight: Singapore</p>
+        <p>Return Flight: Paris</p>
+        <p>Departure Date: <span id="departure-date">2023-07-15</span></p>
+        <p>Return Date: <span id="return-date">2023-07-22</span></p>
+      </div>
+
+      <div id="passenger-details">
+        <h2>Passenger Details</h2>
+        <p>Number of Passengers: <span id="passenger-count">0</span></p>
+      </div>
+
+      <div id="baggage-summary">
+        <h2>Check-In Baggage</h2>
+        <p>
+          Departure: <span id="departure-baggage"></span>
+          Return: <span id="return-baggage"></span>
+        </p>
+      </div>
+
+      <div id="seat-summary">
+        <h2>Seat Summary</h2>
+        <p>
+          Number of seats: <span id="num-seats"></span>
+          Seat number(s): <span id="seat-numbers"></span>
+        </p>
+      </div>
+
+      <div id="total-cost-summary">
+        <h2>Final Price</h2>
+        <!-- Display the total cost here -->
+        Total Cost:
+      </div>
+
+      <button id="confirm-button">Confirm Booking</button>
+    </section>
+  </main>
+
+  <script>
+    // JavaScript code for summary page
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Retrieve the selected options from the URL parameters
+    const selectedSeats = urlParams.get('seats') ? urlParams.get('seats').split(',') : [];
+    const baggageOption = urlParams.get('baggage');
+
+    // Display the selected options in the booking details section
+    const passengerDetails = document.getElementById('passenger-details');
+    const numberOfPassengers = selectedSeats.length;
+    passengerDetails.innerHTML = `
+      <h2>Passenger Details</h2>
+      <p>Number of Passengers: ${numberOfPassengers}</p>
+    `;
+
+    // Display the baggage summary
+    // Retrieve the selected baggage option from the booking.html page
+    const baggageOpt = urlParams.get('baggage');
+
+    // Update the baggage summary with the selected baggage option
+    const departureBaggageSpan = document.getElementById('departure-baggage');
+    const returnBaggageSpan = document.getElementById('return-baggage');
+
+    if (departureBaggageSpan && returnBaggageSpan) {
+      departureBaggageSpan.textContent = baggageOption;
+      returnBaggageSpan.textContent = baggageOption;
+    }
+
+    // Display the seat summary
+    // Retrieve the selected seats from the booking.html page
+    const urlParam = new URLSearchParams(window.location.search);
+    const selectSeats = urlParams.get('seats') ? urlParams.get('seats').split(',') : [];
+
+    // Update the seat summary with the selected seats
+    const numSeatsSpan = document.getElementById('num-seats');
+    const seatNumbersSpan = document.getElementById('seat-numbers');
+
+    if (numSeatsSpan && seatNumbersSpan) {
+      numSeatsSpan.textContent = selectedSeats.length;
+      seatNumbersSpan.textContent = selectedSeats.join(', ');
+    }
+
+    // JavaScript code for seat selection
+    const seats = document.querySelectorAll('.seat');
+    seats.forEach(seat => {
+      seat.addEventListener('click', () => {
+        if (seat.classList.contains('available')) {
+          seat.classList.toggle('selected');
+          updateBookingSummary();
+          updatePassengerCount();
+        }
+      });
+    });
+
+    function updatePassengerCount() {
+      const selectedSeats = document.querySelectorAll('.seat.selected');
+      const passengerCountElement = document.getElementById('passenger-count');
+      if (passengerCountElement) {
+        passengerCountElement.textContent = selectedSeats.length;
+      }
+    }
+
+    // Calculate and display the total cost based on selected seats and baggage option
+    const totalCostSummary = document.getElementById('total-cost-summary');
+    if (totalCostSummary) {
+      // Calculate the total cost based on your logic
+      const totalCost = calculateTotalCost(selectedSeats, baggageOption);
+
+      totalCostSummary.innerHTML = `
+        <h2>Final Price</h2>
+        <p>Total Cost: ${totalCost}</p>
+      `;
+    }
+
+    // Add event listener to the "Confirm Booking" button
+    const confirmButton = document.getElementById('confirm-button');
+    confirmButton.addEventListener('click', () => {
+      // Perform actions when the "Confirm Booking" button is clicked
+      // For example, display a confirmation message
+      window.location.href = 'payment.html';
+    });
+
+    // Function to calculate the total cost based on selected seats and baggage option
+    function calculateTotalCost(seats, baggage) {
+      // Add your calculation logic here and return the total cost
+      return "$700";
+    }
+  </script>
+
+  <footer>
+    <p>&copy; 2023 JETSETGO. All rights reserved.</p>
+    <!-- Add footer content here -->
+  </footer>
+</body>
+</html>

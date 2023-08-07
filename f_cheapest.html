@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+  <!--external CSS, referencing to another file-->
+  <link rel="stylesheet" href="styles.css">
+  <title>Available Flights</title>
+</head>
+
+<body>
+  <!--Navigation header bar-->
+  <header>
+    <nav>
+      <a href="homepage.html" style="color: white;"> JETSETGO</a>
+      <a href="booking confirmed.html" style="color: white;"> Account</a>
+      <a href="" style="color: white;"> EN ($)</a>      
+    </nav>
+  </header>
+
+<!--Main content-->
+  <main>
+    <section id="flights-section">
+
+      <!--Classification table(best, cheapest, fastest)-->
+      <table style="border-style: solid; padding: 5px; border-radius: 10px;">
+        <th style="padding: 5px;">
+          <a href="flights.html">Best </a>
+        </th>
+        <th style="padding: 5px;background-color: rgb(43, 255, 255);">
+          <a href="f_cheapest.html">Cheapest </a>
+        </th>
+        <th style="padding: 5px;">
+          <a href="f_fastest.html">Fastest </a>
+        </th>
+      </table>
+
+      <h1>Available Flights</h1>
+      <!-- The list of flights here -->
+      <ul id="flights-list">
+        <li>
+            <h2>Flight 1</h2>
+<pre>
+Flight details
+Departure 23:50                05:45<sup>+2</sup>
+<i>Singapore[SIN]</i>               <i>Seoul[ICN]</i>
+</pre>
+<hr>
+<pre>
+Flight details
+Return 07:35                   18:30
+<i>Seoul[ICN]</i>                 <i>Singapore[SIN]</i>           
+</pre>
+        <button class="select-button"><a href="booking.html">Select</a></button>
+        <p>$734 Per passenger</p>
+        </li>
+
+        <li>
+          <h2>Flight 2</h2>
+<pre>
+Flight details
+Departure 23:50                 05:45<sup>+2</sup>
+<i>Singapore[SIN]</i>                <i>Seoul[ICN]</i>
+</pre>
+<hr>
+<pre>
+Flight details
+Return 19:00                   00:25<sup>+1</sup>
+<i>Seoul[ICN]</i>                 <i>Singapore[SIN]</i>           
+</pre>
+          <button class="select-button"><a href="booking.html">Select</a></button>
+          <p>$761 Per passenger</p>
+        </li>
+
+        <li>
+          <h2>Flight 3</h2>
+<pre>
+Flight details
+Departure 23:00                06:20<sup>+1</sup>
+<i>Singapore[SIN]</i>               <i>Seoul[ICN]</i>
+</pre>
+<hr>
+<pre>
+Flight details
+Return 18:40                  23:40
+<i>Seoul[ICN]</i>                 <i>Singapore[SIN]</i>           
+</pre>
+          <button class="select-button"><a href="booking.html">Select</a></button>
+          <p>$3,112 Per passenger</p>
+        </li>
+
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Flight Booking. All rights reserved.</p>
+    <!-- Add footer content here -->
+  </footer>
+
+  <script>
+    // Get all the "Select" buttons
+    const selectButtons = document.querySelectorAll('.select-button');
+
+    // Add event listener to each button
+    selectButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Perform actions when button is clicked
+        // For example, navigate to the booking page
+        window.location.href = 'booking.html';
+      });
+    });
+  </script>
+</body>
+</html>

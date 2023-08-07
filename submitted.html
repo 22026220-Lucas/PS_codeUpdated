@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add CSS styles for the navigation bar */
+    header {
+      background-color: #062773;
+      padding: 10px;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'SingaporeAirlines', Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #062773;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0340a4;
+    }
+
+    footer {
+      background-color: #f2f2f2;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Singapore">
+  <title>Submitted</title>
+  <script>
+    function redirectToHomepage() {
+      window.location.href = "homepage.html";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div>
+        <h1 class="logo">JETSETGO</h1>
+      </div>
+      <ul>
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="flights.html">Flights</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Submission Received</h1>
+    <p>Thank you for contacting us! Your message has been submitted successfully.</p>
+    <p>We will get back to you as soon as possible.</p>
+    <input type="submit" value="OK" onclick="redirectToHomepage()">
+  </main>
+
+  <footer>
+    <p>&copy; 2023 JETSETGO. All rights reserved.</p>
+    <!-- Add footer content here -->
+  </footer>
+</body>
+</html>
